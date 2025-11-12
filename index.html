@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Café Aroma — Inicio</title>
+  <meta name="description" content="Café Aroma — Café artesanal colombiano. Disfruta de granos seleccionados, bebidas especiales y la experiencia barista en Medellín.">
+  <link rel="icon" type="image/svg+xml" href="img/favicon.svg">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header class="header fade-down" data-anim>
+    <a href="index.html" class="logo" aria-label="Inicio — Café Aroma">
+      <svg width="48" height="48" viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <rect width="400" height="400" fill="#F9F6F2"/>
+        <ellipse cx="200" cy="240" rx="80" ry="25" fill="#FFFFFF" stroke="#3E2723" stroke-width="6"/>
+        <path d="M120 240 Q120 180, 200 180 Q280 180, 280 240 Z" fill="#FFFFFF" stroke="#3E2723" stroke-width="6"/>
+        <path d="M280 200 Q320 200, 320 230 Q320 260, 280 260" fill="none" stroke="#3E2723" stroke-width="6"/>
+        <path d="M170 140 C160 120, 170 100, 180 80" stroke="#3E2723" stroke-width="4" fill="none" stroke-linecap="round"/>
+        <path d="M200 140 C190 120, 200 100, 210 80" stroke="#3E2723" stroke-width="4" fill="none" stroke-linecap="round"/>
+        <path d="M230 140 C220 120, 230 100, 240 80" stroke="#3E2723" stroke-width="4" fill="none" stroke-linecap="round"/>
+      </svg>
+      <span class="brand">Café Aroma</span>
+    </a>
+
+    <nav>
+      <a href="index.html" class="active">Inicio</a>
+      <a href="quienes-somos.html">Quiénes somos</a>
+      <a href="productos.html">Productos</a>
+      <a href="contactenos.html">Contáctenos</a>
+    </nav>
+
+    <a class="cta" href="#">Reservar</a>
+  </header>
+
+  <!-- POSTER PROMOCIONAL -->
+  <section class="promo fade-up" data-anim>
+    <div class="promo-content">
+      <h2>☕ Promoción especial de la semana</h2>
+      <p>2x1 en bebidas artesanales — del 14 al 17 de noviembre</p>
+      <a href="#productos" class="btn-promo">Explorar bebidas</a>
+    </div>
+  </section>
+
+  <!-- SECCIÓN INTRODUCTORIA -->
+  <section class="intro fade-up" data-anim>
+    <div class="intro-inner">
+      <div class="intro-text">
+        <h2>Pasión por el café colombiano</h2>
+        <p>Desde las montañas de Antioquia hasta tu taza.  
+        En <strong>Café Aroma</strong>, tostamos con amor y servimos con arte.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- HERO -->
+  <section class="hero fade-in" data-anim role="banner" aria-label="Hero principal">
+    <div>
+      <h1>El aroma que despierta tus sentidos</h1>
+      <p>Café artesanal, baristas expertos y granos de origen colombiano</p>
+      <div class="actions">
+        <a class="btn-primary" href="#productos">Ver productos</a>
+        <a class="btn-ghost" href="contactenos.html">Reservar mesa</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRODUCTOS -->
+  <main>
+    <section id="productos" class="section">
+      <h2 class="fade-up" data-anim>Productos Destacados</h2>
+      <div class="grid">
+        <article class="card fade-up" data-anim>
+          <img src="img/grano.png" alt="Café en grano — 500g selección especial">
+          <h3>Café en grano</h3>
+          <p>500 g — Selección especial</p>
+        </article>
+
+        <article class="card fade-up" data-anim>
+          <img src="img/molido.png" alt="Café molido — 250g tostado medio">
+          <h3>Café molido</h3>
+          <p>250 g — Tostado medio</p>
+        </article>
+
+        <article class="card fade-up" data-anim>
+          <img src="img/bebida especial.png" alt="Bebida especial — caramelo salado">
+          <h3>Bebida especial</h3>
+          <p>Caramelo salado — Barista pick</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- CONTACTO -->
+    <section id="contacto" class="section bg-beige fade-up" data-anim>
+      <div class="contact-cta">
+        <div>
+          <strong>Visítanos</strong>
+          <p>Calle 10 #15, Medellín</p>
+        </div>
+        <a href="contactenos.html" class="btn-primary">Enviar mensaje</a>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="footer fade-up" data-anim>
+    <p>© 2025 Café Aroma — Todos los derechos reservados</p>
+    <nav class="footer-nav">
+      <a href="#">Privacidad</a>
+      <a href="#">Términos</a>
+      <a href="#">Instagram</a>
+    </nav>
+  </footer>
+
+  <!-- SCRIPT ANIMACIONES -->
+  <script>
+    const animElements = document.querySelectorAll('[data-anim]');
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if(entry.isIntersecting){
+          entry.target.classList.add('animate');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1 });
+    animElements.forEach(el => observer.observe(el));
+  </script>
+
+</body>
+</html>

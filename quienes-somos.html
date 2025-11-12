@@ -1,0 +1,172 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Café Aroma — Quiénes somos</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    /* HERO MEJORADO */
+    .hero {
+      display: flex;
+      align-items: flex-end;
+      justify-content: center;
+      text-align: center;
+      min-height: 300px;
+      position: relative;
+      color: #fff;
+      background: url('img/cafeteria.png') center/cover no-repeat;
+    }
+    .hero::before {
+      content:"";
+      position:absolute;
+      top:0; left:0;
+      width:100%; height:100%;
+      background-color: rgba(0,0,0,0.4);
+      backdrop-filter: blur(5px);
+      z-index:0;
+    }
+    .hero > div {
+      position: relative;
+      z-index:1;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+    .hero h1 {
+      font-size: 42px;
+      margin:0;
+    }
+    .hero p {
+      font-size: 18px;
+      margin-top:8px;
+      color: #f5f0e6;
+    }
+
+    /* SECCIÓN HISTORIA */
+    .row {
+      display:flex;
+      gap:24px;
+      flex-wrap:wrap;
+      align-items:center;
+      max-width:1100px;
+      margin:40px auto;
+    }
+    .col {
+      flex:1;
+      min-width:280px;
+    }
+    .col img, .col div {
+      width:100%;
+      height:320px;
+      border-radius:12px;
+      object-fit:cover;
+      background:#BCAAA4;
+    }
+
+    /* MISIÓN Y VISIÓN */
+    .bg-beige {
+      background:#f5f0e6;
+      padding:40px 20px;
+    }
+    .cards-mv {
+      display:flex;
+      gap:24px;
+      justify-content:center;
+      flex-wrap:wrap;
+      max-width:1100px;
+      margin:0 auto;
+    }
+    .cards-mv > div {
+      background: #e0d7d0;
+      padding:24px;
+      border-radius:12px;
+      max-width:420px;
+      text-align:center;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+      transition: transform 0.3s;
+    }
+    .cards-mv > div:hover {
+      transform: translateY(-4px);
+    }
+    .cards-mv h3 {
+      font-family: 'Playfair Display', serif;
+      margin-bottom:12px;
+    }
+
+    /* FOOTER */
+    .footer {
+      text-align:center;
+      padding:20px;
+      background:#f5f0e6;
+      font-size:14px;
+    }
+  </style>
+</head>
+<body>
+  <!-- HEADER -->
+  <header class="header">
+    <div class="logo">
+      <svg width="48" height="48" viewBox="0 0 400 400" aria-hidden="true">
+        <rect width="400" height="400" fill="#F9F6F2"/>
+        <ellipse cx="200" cy="240" rx="80" ry="25" fill="#FFFFFF" stroke="#3E2723" stroke-width="6"/>
+        <path d="M120 240 Q120 180, 200 180 Q280 180, 280 240 Z" fill="#FFFFFF" stroke="#3E2723" stroke-width="6"/>
+        <path d="M280 200 Q320 200, 320 230 Q320 260, 280 260" fill="none" stroke="#3E2723" stroke-width="6"/>
+        <path d="M170 140 C160 120, 170 100, 180 80" stroke="#3E2723" stroke-width="4" fill="none" stroke-linecap="round"/>
+        <path d="M200 140 C190 120, 200 100, 210 80" stroke="#3E2723" stroke-width="4" fill="none" stroke-linecap="round"/>
+        <path d="M230 140 C220 120, 230 100, 240 80" stroke="#3E2723" stroke-width="4" fill="none" stroke-linecap="round"/>
+      </svg>
+      <div class="brand">Café Aroma</div>
+    </div>
+
+    <nav>
+      <a href="index.html">Inicio</a>
+      <a href="quienes.html" class="active">Quiénes somos</a>
+      <a href="productos.html">Productos</a>
+      <a href="contactenos.html">Contáctenos</a>
+    </nav>
+
+    <a class="cta" href="#">Reservar</a>
+  </header>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div>
+      <h1>Quiénes somos</h1>
+      <p>Pasión por el café, tradición y calidad desde 1995</p>
+    </div>
+  </section>
+
+  <!-- HISTORIA -->
+  <section class="section">
+    <div class="row">
+      <div class="col">
+        <img src="img/cafeteria.png" alt="Nuestra cafetería">
+      </div>
+      <div class="col">
+        <h2>Nuestra Historia</h2>
+        <p>Somos un café artesanal en Medellín, dedicados a seleccionar los mejores granos y a preparar cada taza con detalle. Nuestro equipo de baristas busca la excelencia en aroma y sabor en cada preparación.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- MISIÓN Y VISIÓN -->
+  <section class="section bg-beige">
+    <div class="cards-mv">
+      <div>
+        <h3>Misión</h3>
+        <p>Brindar la mejor experiencia en café, cuidando la calidad y la tradición.</p>
+      </div>
+      <div>
+        <h3>Visión</h3>
+        <p>Ser reconocidos como la marca de café más confiable y querida en la región.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <p>© 2025 Café Aroma — Todos los derechos reservados</p>
+  </footer>
+</body>
+</html>

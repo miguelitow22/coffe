@@ -1,0 +1,161 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Café Aroma — Productos</title>
+
+  <!-- Fuentes -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+  <!-- Estilos -->
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    /* HERO MEJORADO */
+    .hero-productos {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      min-height: 280px;
+      position: relative;
+      color: #fff;
+      background: url('img/cafeteria.png') center/cover no-repeat;
+    }
+    .hero-productos::before {
+      content:"";
+      position:absolute;
+      top:0; left:0;
+      width:100%; height:100%;
+      background-color: rgba(0,0,0,0.4);
+      backdrop-filter: blur(5px);
+      z-index: 0;
+    }
+    .hero-productos .container {
+      position: relative;
+      z-index:1;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+    .hero-productos h1 {
+      font-size: 40px;
+      margin: 0;
+    }
+    .hero-productos p {
+      font-size: 16px;
+      margin-top: 8px;
+      color: #f5f0e6;
+    }
+
+    /* CATÁLOGO */
+    .catalogo {
+      padding: 40px 20px;
+    }
+    .productos-grid {
+      display: grid;
+      gap: 24px;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      margin-top: 24px;
+    }
+    .card {
+      background: #fff;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      transition: transform 0.3s, box-shadow 0.3s;
+      text-align: center;
+    }
+    .card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 8px 16px rgba(0,0,0,0.15);
+    }
+    .card img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+      display: block;
+    }
+    .card h3 {
+      margin: 12px 0 6px;
+      font-size: 18px;
+    }
+    .card p {
+      margin: 0 0 12px;
+      font-size: 14px;
+      color: #555;
+    }
+
+    /* FOOTER */
+    .footer {
+      text-align: center;
+      padding: 20px;
+      background: #f5f0e6;
+      font-size: 14px;
+    }
+  </style>
+</head>
+<body>
+  <!-- HEADER -->
+  <header class="header">
+    <div class="logo">
+      <svg width="48" height="48" viewBox="0 0 400 400" aria-hidden="true">
+        <rect width="400" height="400" fill="#F9F6F2"/>
+        <ellipse cx="200" cy="240" rx="80" ry="25" fill="#FFFFFF" stroke="#3E2723" stroke-width="6"/>
+        <path d="M120 240 Q120 180, 200 180 Q280 180, 280 240 Z" fill="#FFFFFF" stroke="#3E2723" stroke-width="6"/>
+        <path d="M280 200 Q320 200, 320 230 Q320 260, 280 260" fill="none" stroke="#3E2723" stroke-width="6"/>
+        <path d="M170 140 C160 120, 170 100, 180 80" stroke="#3E2723" stroke-width="4" fill="none" stroke-linecap="round"/>
+        <path d="M200 140 C190 120, 200 100, 210 80" stroke="#3E2723" stroke-width="4" fill="none" stroke-linecap="round"/>
+        <path d="M230 140 C220 120, 230 100, 240 80" stroke="#3E2723" stroke-width="4" fill="none" stroke-linecap="round"/>
+      </svg>
+      <div class="brand">Café Aroma</div>
+    </div>
+
+    <nav>
+      <a href="index.html">Inicio</a>
+      <a href="quienes-somos.html">Quiénes somos</a>
+      <a href="productos.html" class="active">Productos</a>
+      <a href="contactenos.html">Contáctenos</a>
+    </nav>
+
+    <a class="cta" href="#">Reservar</a>
+  </header>
+
+  <!-- HERO -->
+  <section class="hero hero-productos" role="banner">
+    <div class="container">
+      <h1>Productos</h1>
+      <p>Nuestra selección de granos y bebidas especiales</p>
+    </div>
+  </section>
+
+  <!-- CATÁLOGO -->
+  <section class="section catalogo">
+    <div class="container">
+      <h2>Catálogo</h2>
+      <div class="grid productos-grid" role="list">
+        <article class="card" role="listitem">
+          <img src="img/grano.png" alt="Café en grano">
+          <h3>Café en grano</h3>
+          <p>500 g — Selección especial</p>
+        </article>
+
+        <article class="card" role="listitem">
+          <img src="img/molido.png" alt="Café molido">
+          <h3>Café molido</h3>
+          <p>250 g — Tostado medio</p>
+        </article>
+
+        <article class="card" role="listitem">
+          <img src="img/bebida especial.png" alt="Bebida especial">
+          <h3>Bebida especial</h3>
+          <p>Capuchino — Salteado</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <p>© 2025 Café Aroma — Todos los derechos reservados</p>
+  </footer>
+</body>
+</html>

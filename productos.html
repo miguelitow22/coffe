@@ -7,10 +7,72 @@
 
   <!-- Fuentes -->
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Inter:wght@400;600&display=swap" rel="stylesheet">
-  <!-- Estilos -->
-  <link rel="stylesheet" href="css/style.css">
+
   <style>
-    /* HERO MEJORADO */
+    /* HEADER */
+    .header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 40px;
+      height: 100px;
+      background: #3E2723;
+      position: sticky;
+      top: 0;
+      z-index: 999;
+    }
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .logo .brand {
+      font-family: 'Playfair Display', serif;
+      color: #D4AF37;
+      font-weight: 700;
+      font-size: 22px;
+    }
+    nav {
+      display: flex;
+      gap: 28px;
+      align-items: center;
+    }
+    nav a {
+      color: white;
+      text-decoration: none;
+      font-weight: 600;
+      transition: color 0.2s;
+    }
+    nav a:hover, nav a.active { color: #D4AF37; }
+    .cta {
+      background: #D4AF37;
+      color: #3E2723;
+      padding: 10px 16px;
+      border-radius: 8px;
+      font-weight: 700;
+      text-decoration: none;
+      transition: all 0.2s;
+    }
+    .cta:hover { background: #e3c14b; }
+
+    /* BOTÓN HAMBURGUESA */
+    .menu-toggle {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      background: none;
+      border: none;
+      cursor: pointer;
+    }
+    .menu-toggle span {
+      display: block;
+      width: 25px;
+      height: 3px;
+      background: white;
+      border-radius: 2px;
+    }
+
+    /* HERO PRODUCTOS */
     .hero-productos {
       display: flex;
       align-items: center;
@@ -36,20 +98,11 @@
       max-width: 1100px;
       margin: 0 auto;
     }
-    .hero-productos h1 {
-      font-size: 40px;
-      margin: 0;
-    }
-    .hero-productos p {
-      font-size: 16px;
-      margin-top: 8px;
-      color: #f5f0e6;
-    }
+    .hero-productos h1 { font-size: 40px; margin: 0; }
+    .hero-productos p { font-size: 16px; margin-top: 8px; color: #f5f0e6; }
 
     /* CATÁLOGO */
-    .catalogo {
-      padding: 40px 20px;
-    }
+    .catalogo { padding: 40px 20px; }
     .productos-grid {
       display: grid;
       gap: 24px;
@@ -74,35 +127,37 @@
       object-fit: cover;
       display: block;
     }
-    .card h3 {
-      margin: 12px 0 6px;
-      font-size: 18px;
-    }
-    .card p {
-      margin: 0 0 12px;
-      font-size: 14px;
-      color: #555;
-    }
+    .card h3 { margin: 12px 0 6px; font-size: 18px; }
+    .card p { margin: 0 0 12px; font-size: 14px; color: #555; }
 
     /* FOOTER */
-    .footer {
-      text-align: center;
-      padding: 20px;
-      background: #f5f0e6;
-      font-size: 14px;
+    .footer { text-align: center; padding: 20px; background: #f5f0e6; font-size: 14px; }
+
+    /* RESPONSIVE */
+    @media(max-width: 768px) {
+      nav {
+        display: none;
+        flex-direction: column;
+        background: #3E2723;
+        position: absolute;
+        top: 100px;
+        right: 0;
+        width: 200px;
+        padding: 20px;
+        border-radius: 0 0 0 8px;
+      }
+      nav.show { display: flex; }
+      .menu-toggle { display: flex; }
+      .hero-productos h1 { font-size: 28px; }
+      .hero-productos p { font-size: 14px; }
     }
   </style>
 </head>
 <body>
+
   <!-- HEADER -->
   <header class="header">
-    <button class="menu-toggle" aria-label="Abrir menú">
-  <span></span>
-  <span></span>
-  <span></span>
-</button>
-
-    <div class="logo">
+    <a href="index.html" class="logo" aria-label="Inicio — Café Aroma">
       <svg width="48" height="48" viewBox="0 0 400 400" aria-hidden="true">
         <rect width="400" height="400" fill="#F9F6F2"/>
         <ellipse cx="200" cy="240" rx="80" ry="25" fill="#FFFFFF" stroke="#3E2723" stroke-width="6"/>
@@ -112,16 +167,15 @@
         <path d="M200 140 C190 120, 200 100, 210 80" stroke="#3E2723" stroke-width="4" fill="none" stroke-linecap="round"/>
         <path d="M230 140 C220 120, 230 100, 240 80" stroke="#3E2723" stroke-width="4" fill="none" stroke-linecap="round"/>
       </svg>
-      <div class="brand">Café Aroma</div>
-    </div>
-
+      <span class="brand">Café Aroma</span>
+    </a>
+    <button class="menu-toggle" aria-label="Abrir menú"><span></span><span></span><span></span></button>
     <nav>
       <a href="index.html">Inicio</a>
       <a href="quienes-somos.html">Quiénes somos</a>
       <a href="productos.html" class="active">Productos</a>
       <a href="contactenos.html">Contáctenos</a>
     </nav>
-
     <a class="cta" href="#">Reservar</a>
   </header>
 
@@ -137,20 +191,18 @@
   <section class="section catalogo">
     <div class="container">
       <h2>Catálogo</h2>
-      <div class="grid productos-grid" role="list">
-        <article class="card" role="listitem">
+      <div class="productos-grid">
+        <article class="card">
           <img src="img/grano.png" alt="Café en grano">
           <h3>Café en grano</h3>
           <p>500 g — Selección especial</p>
         </article>
-
-        <article class="card" role="listitem">
+        <article class="card">
           <img src="img/molido.png" alt="Café molido">
           <h3>Café molido</h3>
           <p>250 g — Tostado medio</p>
         </article>
-
-        <article class="card" role="listitem">
+        <article class="card">
           <img src="img/bebida especial.png" alt="Bebida especial">
           <h3>Bebida especial</h3>
           <p>Capuchino — Salteado</p>
@@ -163,5 +215,12 @@
   <footer class="footer">
     <p>© 2025 Café Aroma — Todos los derechos reservados</p>
   </footer>
+
+  <script>
+    // Menú responsive
+    const menuToggle = document.querySelector('.menu-toggle');
+    const nav = document.querySelector('header nav');
+    menuToggle.addEventListener('click', () => nav.classList.toggle('show'));
+  </script>
 </body>
 </html>

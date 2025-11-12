@@ -8,16 +8,195 @@
   <link rel="icon" type="image/svg+xml" href="img/favicon.svg">
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Inter:wght@400;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
+  <style>
+    /* HEADER RESPONSIVO */
+    .header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 40px;
+      background: #3E2723;
+      height: 100px;
+      position: sticky;
+      top: 0;
+      z-index: 999;
+    }
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .logo .brand {
+      font-family: 'Playfair Display', serif;
+      color: #D4AF37;
+      font-weight: 700;
+      font-size: 22px;
+    }
+    nav {
+      display: flex;
+      gap: 28px;
+      align-items: center;
+    }
+    nav a {
+      color: white;
+      text-decoration: none;
+      font-weight: 600;
+      transition: color 0.2s;
+    }
+    nav a:hover, nav a.active { color: #D4AF37; }
+    .cta {
+      background: #D4AF37;
+      color: #3E2723;
+      padding: 10px 16px;
+      border-radius: 8px;
+      font-weight: 700;
+      text-decoration: none;
+      transition: all 0.2s;
+    }
+    .cta:hover { background: #e3c14b; }
+
+    /* BOTÓN HAMBURGUESA */
+    .menu-toggle {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      background: none;
+      border: none;
+      cursor: pointer;
+    }
+    .menu-toggle span {
+      display: block;
+      width: 25px;
+      height: 3px;
+      background: white;
+      border-radius: 2px;
+    }
+
+    /* RESPONSIVO */
+    @media (max-width: 768px) {
+      nav {
+        display: none;
+        flex-direction: column;
+        background: #3E2723;
+        position: absolute;
+        top: 100px;
+        right: 0;
+        width: 200px;
+        padding: 20px;
+        border-radius: 0 0 0 8px;
+      }
+      nav.show { display: flex; }
+      .menu-toggle { display: flex; }
+    }
+
+    /* HERO Y PROMO */
+    .hero {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      min-height: 80vh;
+      color: #fff;
+      background: url('img/cafeteria.png') center/cover no-repeat;
+      position: relative;
+    }
+    .hero::before {
+      content: "";
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: linear-gradient(to bottom, rgba(0,0,0,0.2), rgba(0,0,0,0.5));
+      backdrop-filter: blur(8px);
+      z-index: 0;
+    }
+    .hero > div {
+      position: relative;
+      z-index: 1;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+    .hero h1 { font-size: 40px; margin-bottom: 12px; }
+    .hero p { font-size: 16px; color: #f5f0e6; margin-bottom: 16px; }
+
+    .actions {
+      display: flex;
+      gap: 16px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    .btn-primary {
+      background: #D4AF37;
+      color: #3E2723;
+      padding: 12px 26px;
+      border-radius: 30px;
+      text-decoration: none;
+      font-weight: 700;
+      transition: all 0.25s;
+    }
+    .btn-primary:hover { background: #e3c14b; }
+    .btn-ghost {
+      background: rgba(255,255,255,0.12);
+      color: white;
+      border: 1px solid rgba(255,255,255,0.18);
+      padding: 12px 26px;
+      border-radius: 30px;
+      font-weight: 700;
+      text-decoration: none;
+      transition: all 0.25s;
+    }
+    .btn-ghost:hover { background: rgba(255,255,255,0.25); }
+
+    /* GRID PRODUCTOS */
+    .grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 40px;
+      justify-content: center;
+    }
+    .card {
+      background: #fff;
+      border-radius: 12px;
+      padding: 16px;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+      width: 300px;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+    .card:hover { transform: translateY(-6px); box-shadow: 0 12px 30px rgba(0,0,0,0.12); }
+    .card img { width: 100%; height: 220px; object-fit: cover; border-radius: 12px; margin-bottom: 12px; }
+    .card h3 { margin-bottom: 6px; font-size: 20px; }
+    .card p { color: #6B6B6B; font-size: 14px; }
+
+    /* CONTACT CTA */
+    .contact-cta {
+      display: flex;
+      gap: 24px;
+      align-items: center;
+      justify-content: space-between;
+      padding: 24px;
+      background: #F5EFE8;
+      border-radius: 12px;
+      flex-wrap: wrap;
+    }
+    .contact-cta div { flex: 1; min-width: 220px; }
+    .contact-cta .btn-primary { flex-shrink: 0; }
+
+    /* FOOTER */
+    .footer { text-align: center; padding: 20px; background: #f5f0e6; font-size: 14px; }
+    .footer-nav { margin-top: 8px; display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+
+    /* RESPONSIVE */
+    @media(max-width: 768px) {
+      .hero h1 { font-size: 28px; }
+      .hero p { font-size: 14px; }
+      .card { width: 90%; max-width: 320px; }
+      .contact-cta { flex-direction: column; text-align: center; }
+    }
+  </style>
 </head>
 <body>
 
   <!-- HEADER -->
   <header class="header fade-down" data-anim>
-    <button class="menu-toggle" aria-label="Abrir menú">
-  <span></span>
-  <span></span>
-  <span></span>
-</button>
     <a href="index.html" class="logo" aria-label="Inicio — Café Aroma">
       <svg width="48" height="48" viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
         <rect width="400" height="400" fill="#F9F6F2"/>
@@ -30,14 +209,13 @@
       </svg>
       <span class="brand">Café Aroma</span>
     </a>
-
+    <button class="menu-toggle" aria-label="Abrir menú"><span></span><span></span><span></span></button>
     <nav>
       <a href="index.html" class="active">Inicio</a>
       <a href="quienes-somos.html">Quiénes somos</a>
       <a href="productos.html">Productos</a>
       <a href="contactenos.html">Contáctenos</a>
     </nav>
-
     <a class="cta" href="#">Reservar</a>
   </header>
 
@@ -50,13 +228,12 @@
     </div>
   </section>
 
-  <!-- SECCIÓN INTRODUCTORIA -->
+  <!-- INTRO -->
   <section class="intro fade-up" data-anim>
     <div class="intro-inner">
       <div class="intro-text">
         <h2>Pasión por el café colombiano</h2>
-        <p>Desde las montañas de Antioquia hasta tu taza.  
-        En <strong>Café Aroma</strong>, tostamos con amor y servimos con arte.</p>
+        <p>Desde las montañas de Antioquia hasta tu taza. En <strong>Café Aroma</strong>, tostamos con amor y servimos con arte.</p>
       </div>
     </div>
   </section>
@@ -120,8 +297,8 @@
     </nav>
   </footer>
 
-  <!-- SCRIPT ANIMACIONES -->
   <script>
+    // Animaciones al scroll
     const animElements = document.querySelectorAll('[data-anim]');
     const observer = new IntersectionObserver(entries => {
       entries.forEach(entry => {
@@ -132,13 +309,11 @@
       });
     }, { threshold: 0.1 });
     animElements.forEach(el => observer.observe(el));
+
+    // Menú responsive
     const menuToggle = document.querySelector('.menu-toggle');
-const nav = document.querySelector('.header nav');
-
-menuToggle.addEventListener('click', () => {
-  nav.classList.toggle('show');
-});
+    const nav = document.querySelector('.header nav');
+    menuToggle.addEventListener('click', () => nav.classList.toggle('show'));
   </script>
-
 </body>
 </html>

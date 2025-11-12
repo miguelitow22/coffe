@@ -509,3 +509,44 @@ body {
   opacity: 1;
   transform: translateY(0);
 }
+
+.menu-toggle {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.menu-toggle span {
+  display: block;
+  width: 25px;
+  height: 3px;
+  background: white;
+  border-radius: 2px;
+}
+
+/* Mostrar botón solo en móvil */
+@media (max-width: 480px) {
+  .menu-toggle {
+    display: flex;
+  }
+
+  .header nav {
+    position: absolute;
+    top: 70px; /* debajo del header */
+    left: 0;
+    width: 100%;
+    background: var(--cafe-oscuro);
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    padding: 20px 0;
+    display: none; /* oculto por defecto */
+  }
+
+  .header nav.show {
+    display: flex;
+  }
+}

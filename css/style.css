@@ -4,6 +4,7 @@
 :root {
   --cafe-oscuro: #3E2723;
   --cafe-medio: #5D4037;
+  --cafe-claro: #8D6E63;
   --dorado: #D4AF37;
   --beige: #F9F6F2;
   --beige-2: #FDF3E7;
@@ -95,19 +96,52 @@ body {
   background: #e3c14b;
 }
 
+/* Menu móvil */
+.menu-toggle {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.menu-toggle span {
+  display: block;
+  width: 25px;
+  height: 3px;
+  background: white;
+  border-radius: 2px;
+}
+
 /* ==============================
-   🏞️ Hero
+   🏞️ Hero Moderno
 =================================*/
 .hero {
-  height: 800px;
+  position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
   text-align: center;
-  color: var(--beige-2);
-  padding: 0 120px;
-  background: linear-gradient(rgba(0, 0, 0, 0.18), rgba(0, 0, 0, 0.18)),
-              url('../img/hero.jpg') center/cover no-repeat;
+  min-height: 80vh;
+  color: #fff;
+  background: url('img/cafeteria.png') center/cover no-repeat;
+}
+
+.hero::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: linear-gradient(to bottom, rgba(0,0,0,0.2), rgba(0,0,0,0.5));
+  backdrop-filter: blur(8px);
+  z-index: 0;
+  transition: backdrop-filter 0.5s ease;
+}
+
+.hero > div {
+  position: relative;
+  z-index: 1;
 }
 
 .hero h1 {
@@ -183,7 +217,7 @@ body {
 }
 
 /* ==============================
-   ☕ Productos
+   ☕ Productos / Cards
 =================================*/
 .grid {
   display: flex;
@@ -199,7 +233,7 @@ body {
   padding: 16px;
   box-shadow: var(--shadow);
   overflow: hidden;
-  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .card:hover {
@@ -250,81 +284,6 @@ body {
   font-size: 16px;
 }
 
-/* ==============================
-   📱 Responsive
-=================================*/
-@media (max-width: 1024px) {
-  .header {
-    padding: 0 40px;
-    height: 90px;
-  }
-
-  .hero {
-    height: 600px;
-    padding: 0 40px;
-  }
-
-  .hero h1 {
-    font-size: 42px;
-  }
-
-  .section {
-    padding: 60px 40px;
-  }
-
-  .card {
-    width: 45%;
-  }
-
-  .logo svg {
-    height: 40px;
-  }
-}
-
-@media (max-width: 768px) {
-  .row {
-    flex-direction: column;
-    text-align: center;
-  }
-
-  .actions {
-    flex-direction: column;
-  }
-
-  .card {
-    width: 100%;
-    max-width: 360px;
-  }
-}
-
-@media (max-width: 480px) {
-  .header {
-    padding: 12px 20px;
-    height: 70px;
-  }
-
-  .header nav {
-    display: none;
-  }
-
-  .hero {
-    height: 420px;
-    padding: 0 20px;
-  }
-
-  .hero h1 {
-    font-size: 28px;
-  }
-
-  .section {
-    padding: 30px 20px;
-  }
-
-  .contact-cta {
-    flex-direction: column;
-    text-align: center;
-  }
-}
 /* ==============================
    🧋 Banner Promocional
 =================================*/
@@ -384,13 +343,8 @@ body {
   transform: translateY(-3px);
 }
 
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(20px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
 /* ==============================
-   🌄 Intro Sección Mejorada
+   ✨ Intro Sección Mejorada
 =================================*/
 .intro {
   background: var(--beige-2);
@@ -440,60 +394,19 @@ body {
   animation: fadeIn 1.2s ease forwards;
 }
 
+/* ==============================
+   ✨ Animaciones
+=================================*/
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
 @keyframes slideUp {
   from { opacity: 0; transform: translateY(40px); }
   to { opacity: 1; transform: translateY(0); }
 }
 
-/* 📱 Responsivo */
-@media (max-width: 768px) {
-  .intro-inner {
-    flex-direction: column-reverse;
-    text-align: center;
-  }
-
-  .intro {
-    padding: 60px 30px;
-  }
-
-  .intro-image img {
-    max-width: 320px;
-  }
-}
-
-.hero {
-  position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  min-height: 80vh;
-  color: #fff;
-  background: url('img/cafeteria.png') center/cover no-repeat;
-}
-
-.hero::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(to bottom, rgba(0,0,0,0.2), rgba(0,0,0,0.5));
-  backdrop-filter: blur(8px);
-  z-index: 0;
-  transition: backdrop-filter 0.5s ease;
-}
-
-
-.hero > div {
-  position: relative;
-  z-index: 1; /* Asegura que el contenido quede encima del fondo difuminado */
-}
-
-/* ==============================
-   ✨ Animaciones al hacer scroll
-=================================*/
 .fade-up, .fade-down, .fade-in {
   opacity: 0;
   transform: translateY(20px);
@@ -510,43 +423,33 @@ body {
   transform: translateY(0);
 }
 
-.menu-toggle {
-  display: none;
-  flex-direction: column;
-  gap: 5px;
-  background: none;
-  border: none;
-  cursor: pointer;
+/* ==============================
+   📱 Responsive
+=================================*/
+@media (max-width: 1024px) {
+  .header { padding: 0 40px; height: 90px; }
+  .hero { height: 600px; padding: 0 40px; }
+  .hero h1 { font-size: 42px; }
+  .section { padding: 60px 40px; }
+  .card { width: 45%; }
 }
 
-.menu-toggle span {
-  display: block;
-  width: 25px;
-  height: 3px;
-  background: white;
-  border-radius: 2px;
+@media (max-width: 768px) {
+  .row { flex-direction: column; text-align: center; }
+  .actions { flex-direction: column; }
+  .card { width: 100%; max-width: 360px; }
+  .intro-inner { flex-direction: column-reverse; text-align: center; }
+  .intro { padding: 60px 30px; }
+  .intro-image img { max-width: 320px; }
 }
 
-/* Mostrar botón solo en móvil */
 @media (max-width: 480px) {
-  .menu-toggle {
-    display: flex;
-  }
-
-  .header nav {
-    position: absolute;
-    top: 70px; /* debajo del header */
-    left: 0;
-    width: 100%;
-    background: var(--cafe-oscuro);
-    flex-direction: column;
-    align-items: center;
-    gap: 20px;
-    padding: 20px 0;
-    display: none; /* oculto por defecto */
-  }
-
-  .header nav.show {
-    display: flex;
-  }
+  .header { padding: 12px 20px; height: 70px; }
+  .header nav { display: none; position: absolute; top: 70px; left: 0; width: 100%; background: var(--cafe-oscuro); flex-direction: column; align-items: center; gap: 20px; padding: 20px 0; }
+  .header nav.show { display: flex; }
+  .menu-toggle { display: flex; }
+  .hero { height: 60vh; padding: 0 20px; }
+  .hero h1 { font-size: 28px; }
+  .section { padding: 30px 20px; }
+  .contact-cta { flex-direction: column; text-align: center; }
 }
